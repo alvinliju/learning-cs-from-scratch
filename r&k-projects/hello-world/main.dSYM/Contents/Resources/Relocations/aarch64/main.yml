@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/l3mon/Documents/cs-from-scratch/hello-world/main'
+relocations:     []
+...
