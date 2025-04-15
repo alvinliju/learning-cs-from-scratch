@@ -8,6 +8,7 @@ This repo will consider small projects that helped me go from 0-1 as a programme
 - Finish k&r book and do all the exercises
 -  Implement basic data structures in C (linked lists, stacks, queues)
 #### Practical Projects to build:
+- Build a blog app in pure c
 - Build a memory allocator (malloc implementation)
 - Build your own shell: https://brennan.io/2015/01/16/write-a-shell-in-c/
 - Text editor implementation: https://viewsourcecode.org/snaptoken/kilo/

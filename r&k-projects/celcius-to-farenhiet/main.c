@@ -7,7 +7,7 @@
 #define  UPPER 300
 #define STEP 20
 
-int main(){
+void printFarenTOCelcius(){
     float celcius, faren;
     
     for(int i=UPPER; i>=LOWER; i=i-STEP){
@@ -15,5 +15,10 @@ int main(){
         celcius = ((5)*(faren-32)/9);
         printf("farenhiet:%f, -->  celcius:%f \n",faren, celcius);
     }
-
 }
+
+
+int main(){
+    printFarenTOCelcius();
+}
+
