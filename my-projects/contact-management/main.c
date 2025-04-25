@@ -22,9 +22,13 @@ issues/things i dont know a fuck about:
 
 
 TODO:
-create a struct for contacts
-create a function called getMenu() which gets our options
-create a function addContact to create and add it to file.
+create a struct for contacts - done
+create a function called getMenu() which gets our options - done
+create a function addContact to create and add it to file. - done
+
+create a function to search contacts:
+   - implement a function searchDB
+   - get single line and go through it -> if a match then print else keep searching else return something
  */
 
  #include <stdio.h>
@@ -42,6 +46,7 @@ create a function addContact to create and add it to file.
     int choice=0;
     printf("Main Menu\n");
     printf("[1] Add Contact\n");
+    printf("[2] Search Contacts\n");
     printf("Choose an option:"); scanf("%d", &choice);
     return choice;
  }
@@ -50,7 +55,7 @@ create a function addContact to create and add it to file.
  void saveToFile(struct contacts *contact){
     FILE *f;
     size_t nwritten;
-    f = fopen("contacts.txt", "wb");
+    f = fopen("contacts.txt", "a");
     if (f == NULL){
         printf("Cannot open file\n");
         return;
@@ -76,10 +81,24 @@ create a function addContact to create and add it to file.
     printf("Enter phone number: "); scanf("%ld", &cont->ph);
     printf("Enter email: "); scanf("%s", cont->email);
     
-    saveToFile(&cont);
+    saveToFile(cont);
     free(cont);
  }
 
+ void searchContacts(){
+   char line[1024];
+   char input[1024];
+
+   scanf("%s", &input);
+
+   FILE *stream = fopen("contacts.txt", "r");
+   while(fgets(line, 1024, stream)){
+      if(line == input){
+         printf("%s", "Contact Found!\n");
+         printf("%s", line);
+      }
+   }
+ }
  int main(){
     char query[20];
     int found, ch;
@@ -89,6 +108,9 @@ create a function addContact to create and add it to file.
         switch(ch){
             case 1:
                 addContacts();
+
+            case 2:
+               searchContacts();
         }
     }
  }
