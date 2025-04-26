@@ -1,6 +1,4 @@
-/*
-Exercise 1-23. Write a program to remove all comments from a C program. Don't forget to
-handle quoted strings and character constants properly. C comments don't nest. 
+/*handle quoted strings and character constants properly. C comments don't nest. 
 
 breakdown:
 - read a file line by line
@@ -11,19 +9,21 @@ breakdown:
 
 #include <stdio.h>
 #include <regex.h>
-regex_t regex;
-int reti;
 int main(){
+	const char *old_name="temp.c";
+	const char *new_name="xyz.c";	
+	regex_t regex;
 
-	reti = regcomp(&regex, "\/\/[^\n\r]+?(?:\*\)|[\n\r])", 0);
+	int reti=0;
+
+	reti = regcomp(&regex, "//.*" , 0);
 	if (reti) {
-    		fprintf(stderr, 'Could not compile regex\n');
-    		exit(1);
+    		fprintf(stderr, "Could not compile regex\n");
 	}	
 	FILE *fptr;
         FILE *tmp;
-	fptr = fopen('xyz.c', 'r');
-	tmp = fopen('temp.c', 'a');
+	fptr = fopen("xyz.c", "r");
+	tmp = fopen("temp.c", "a");
 
 	char fileContent[100];
 	while(fgets(fileContent, 100, fptr)){
@@ -41,7 +41,7 @@ int main(){
 
 	}
 
-	
+    	rename(old_name, new_name);
 	fclose(tmp);
 	fclose(fptr);
 	regfree(&regex);

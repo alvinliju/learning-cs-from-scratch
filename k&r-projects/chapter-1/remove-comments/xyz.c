@@ -1,11 +1,10 @@
-#include <stdio.h>
 
-// Dummy function to simulate some logic
+
+#include <stdio.h>
 void performDummyTask() {
     printf("Performing a dummy task...\n");
 }
 
-// Another dummy function
 int addNumbers(int a, int b) {
     return a + b;
 }
@@ -16,7 +15,7 @@ int main() {
     performDummyTask();
 
     int result = addNumbers(5, 7);
-    printf("Result of adding numbers: %d\n", result);
+    printf("Result of adding numbers: 0\n", result);
 
     printf("Dummy program finished.\n");
     return 0;
