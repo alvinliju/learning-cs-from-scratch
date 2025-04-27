@@ -1,5 +1,4 @@
 
-
 #include <stdio.h>
 void performDummyTask() {
     printf("Performing a dummy task...\n");
